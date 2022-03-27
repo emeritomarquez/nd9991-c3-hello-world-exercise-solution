@@ -24,24 +24,9 @@ Resources:
         - IpProtocol: tcp
           FromPort: '22'
           ToPort: '22'
-          CidrIp: 52.26.26.14/32
-        - IpProtocol: tcp
-          FromPort: '22'
-          ToPort: '22'
-          CidrIp: 18.236.159.233/32
+          CidrIp: 172.31.0.0/16 
         - IpProtocol: icmp
           FromPort: '8'
           ToPort: '-1'
-          CidrIp: 18.236.159.233/32
-        - IpProtocol: icmp
-          FromPort: '8'
-          ToPort: '-1'
-          CidrIp: 52.26.26.14/32
-        - IpProtocol: tcp
-          FromPort: '3000'
-          ToPort: '3000'
-          CidrIp: 18.236.159.233/32
-        - IpProtocol: tcp
-          FromPort: '3000'
-          ToPort: '3000'
-          CidrIp: 52.26.26.14/32
+          CidrIp: 172.31.0.0/16
+            
