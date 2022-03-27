@@ -82,9 +82,10 @@ jobs:
       - checkout
       - run:
           name: Create inventory file
-          command: aws ec2 describe-instances \
-                     --query 'Reservations[*].Instances[*].PrivateIpAddress' \
-                     --output text >> inventory.txt
+          command: |
+            aws ec2 describe-instances \
+              --query 'Reservations[*].Instances[*].PrivateIpAddress' \
+              --output text >> inventory.txt
 
   download_file:
     docker:
