@@ -233,6 +233,7 @@ workflows:
       - create_inventory_file:
           requires:
             - upload_file
+            - create_infrastructure
       - download_file:
           requires:
             - create_inventory_file
