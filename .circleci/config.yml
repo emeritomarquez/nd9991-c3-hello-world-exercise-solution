@@ -45,25 +45,6 @@ jobs:
       - run: echo WORLD
       - run: echo $_env_name
 
-  # Exercise: Sharing Files (Job names may have changed)
-  upload_file:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run: echo "THIS IS A SAMPLE TEXT" > ~/output.txt
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - output.txt
-
-  download_file:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: cat ~/output.txt
-
   # Exercise: Infrastructure Creation
   # Exercise - Rollback
   create_infrastructure:
@@ -82,16 +63,33 @@ jobs:
       # Uncomment the line below if you want to fail the current step
       #- run: return 1
       #- destroy_environment
+
+  # Exercise: Sharing Files (Job names may have changed)
+  upload_file:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
       - run: echo "[hosts]" > ~/inventory.txt
       - persist_to_workspace:
           root: ~/
           paths:
-            - inventory.txt  
+            - inventory.txt
+
+  create_inventory_file:
+        docker:
+      - image: amazon/aws-cli
+    steps:
+      - checkout
       - run:
           name: Create inventory file
           command: aws ec2 describe-instances \
                      --query 'Reservations[*].Instances[*].PrivateIpAddress' \
                      --output text >> inventory.txt
+
+   download_file:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
       - attach_workspace:
           at: ~/
       - run: cat ~/inventory.txt
@@ -229,11 +227,14 @@ workflows:
     jobs:
       # - welcome/run
       - print_greetings
+      - create_infrastructure
       - upload_file
-      - download_file:
+      - create_inventory_file:
           requires:
             - upload_file
-      - create_infrastructure
+      - download_file:
+          requires:
+            - create_inventory__file
 #     - configure_infrastructure
 #      - create_and_deploy_front_end
 #      - promote_to_production:
