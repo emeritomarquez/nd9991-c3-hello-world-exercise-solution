@@ -82,7 +82,19 @@ jobs:
       # Uncomment the line below if you want to fail the current step
       #- run: return 1
       #- destroy_environment
-
+      - run: echo "[hosts]" > ~/inventory.txt
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - inventory.txt  
+      - run:
+          name: Create inventory file
+          command: aws ec2 describe-instances \
+                     --query 'Reservations[*].Instances[*].PrivateIpAddress' \
+                     --output text >> inventory.txt
+      - attach_workspace:
+          at: ~/
+      - run: cat ~/inventory.txt
 
   # Exercise: Config and Deployment
 #  configure_infrastructure:
