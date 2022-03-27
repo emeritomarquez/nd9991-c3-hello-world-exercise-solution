@@ -237,7 +237,7 @@ workflows:
       - download_file:
           requires:
             - create_inventory_file
-      - configure_infrastructure
+      - configure_infrastructure:
           requires:
             - create_inventory_file
 #      - create_and_deploy_front_end
