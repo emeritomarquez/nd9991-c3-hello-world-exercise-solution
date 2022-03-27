@@ -96,22 +96,22 @@ jobs:
       - run: cat ~/inventory.txt
 
   # Exercise: Config and Deployment
-#  configure_infrastructure:
-#    docker:
-#      - image: python:3.7-alpine3.11
-#    steps:
-#      - checkout
-#      - add_ssh_keys:
-#          fingerprints: ["0c:55:f7:d7:ad:e3:73:19:0b:e6:c6:46:5c:04:76:94"] # You can get this ID in the section where you registered the SSH Key
-#      - run:
-#          name: Install dependencies
-#          command: |
+  configure_infrastructure:
+    docker:
+      - image: python:3.7-alpine3.11
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints: ["24:43:5c:cd:04:ca:0d:b4:a9:a6:72:1d:2d:73:56:31"] # You can get this ID in the section where you registered the SSH Key
+      - run:
+          name: Install dependencies
+          command: |
             # install the dependencies needed for your playbook
-#            apk add --update ansible
-#      - run:
-#          name: Configure server
-#          command: |
-#            ansible-playbook -i inventory.txt main4.yml
+            apk add --update ansible
+      - run:
+          name: Configure server
+          command: |
+            ansible-playbook -i inventory.txt main4.yml
 
   # Exercise: Smoke Testing
 #  smoke_test:
@@ -237,7 +237,9 @@ workflows:
       - download_file:
           requires:
             - create_inventory_file
-#     - configure_infrastructure
+      - configure_infrastructure
+          requires:
+            - create_inventory_file
 #      - create_and_deploy_front_end
 #      - promote_to_production:
 #          requires:
