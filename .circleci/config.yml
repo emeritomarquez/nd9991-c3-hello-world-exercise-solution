@@ -86,7 +86,7 @@ jobs:
                      --query 'Reservations[*].Instances[*].PrivateIpAddress' \
                      --output text >> inventory.txt
 
-   download_file:
+  download_file:
     docker:
       - image: circleci/node:13.8.0
     steps:
