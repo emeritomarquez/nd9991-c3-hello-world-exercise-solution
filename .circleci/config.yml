@@ -231,7 +231,7 @@ workflows:
       - create_infrastructure
       - upload_file
           requires:
-            - create_infrastructuree
+            - create_infrastructure
       - create_inventory_file:
           requires:
             - upload_file
