@@ -66,27 +66,32 @@ jobs:
       #- destroy_environment
 
   # Exercise: Sharing Files (Job names may have changed)
-  upload_file:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - run: echo "[hosts]" > ~/inventory.txt
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - inventory.txt
+#  upload_file:
+#    docker:
+#      - image: circleci/node:13.8.0
+#    steps:
+#      - run: echo "[hosts]" > ~/inventory.txt
+#      - persist_to_workspace:
+#          root: ~/
+#          paths:
+#            - inventory.txt
 
   create_inventory_file:
     docker:
       - image: amazon/aws-cli
     steps:
       - checkout
+      - run: echo "[hosts]" > ~/inventory.txt
       - run:
           name: Create inventory file
           command: |
             aws ec2 describe-instances \
               --query 'Reservations[*].Instances[*].PrivateIpAddress' \
               --output text >> ~/inventory.txt
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - inventory.txt
 
   download_file:
     docker:
@@ -230,12 +235,12 @@ workflows:
       # - welcome/run
       - print_greetings
       - create_infrastructure
-      - upload_file:
-          requires:
-            - create_infrastructure
+#      - upload_file:
+#          requires:
+#            - create_infrastructure
       - create_inventory_file:
           requires:
-            - upload_file
+#            - upload_file
             - create_infrastructure
       - download_file:
           requires:
