@@ -92,7 +92,7 @@ jobs:
             aws ec2 describe-instances \
               --query 'Reservations[*].Instances[*].PrivateIpAddress' \
               --output text >> ~/inventory.txt
-      - run: python --version
+      - run: python sample.py 
       - persist_to_workspace:
           root: ~/
           paths:
