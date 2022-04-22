@@ -93,8 +93,7 @@ jobs:
               --query 'Reservations[*].Instances[*].PrivateIpAddress' \
               --output text >> ~/inventory.txt
       - run: cat ~/inventory.txt
-      - run: cd ~
-      - run: ./inventory.py 
+      - run: python inventory.py 
       - persist_to_workspace:
           root: ~/
           paths:
