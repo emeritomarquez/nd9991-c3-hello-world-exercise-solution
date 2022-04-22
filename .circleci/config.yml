@@ -92,11 +92,12 @@ jobs:
             aws ec2 describe-instances \
               --query 'Reservations[*].Instances[*].PrivateIpAddress' \
               --output text >> ~/inventory.txt
-      - run: python sample.py 
+      - run: ./inventory.py 
       - persist_to_workspace:
           root: ~/
           paths:
             - inventory1.txt
+
 
   download_file:
     docker:
