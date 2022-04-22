@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-f = open('inventory.txt', 'r')
+f = open('~/inventory.txt', 'r')
 lines = f.readlines()
 f.close()
 rows = []
@@ -24,7 +24,7 @@ for line in lines:
     else:
         rows.append(line)
 print(rows)
-g = open('inventory1.txt', 'w+')
+g = open('~/Inventory1.txt', 'w+')
 for element in rows:
     g.write(element)
 print(g)
