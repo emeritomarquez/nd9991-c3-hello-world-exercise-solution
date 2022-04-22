@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 f = open('inventory.txt', 'r')
 lines = f.readlines()
 f.close()
