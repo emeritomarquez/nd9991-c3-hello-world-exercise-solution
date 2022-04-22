@@ -1,4 +1,4 @@
-f = open('inventory.txt', 'r')
+f = open('~/inventory.txt', 'r')
 lines = f.readlines()
 f.close()
 rows = []
