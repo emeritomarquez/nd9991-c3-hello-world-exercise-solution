@@ -2,7 +2,7 @@
 
 import sys
 
-f = open('sys.argv[2]', 'r')
+f = open(sys.argv[2], 'r')
 lines = f.readlines()
 f.close()
 rows = []
@@ -26,7 +26,7 @@ for line in lines:
     else:
         rows.append(line)
 print(rows)
-g = open('sys.argv[3]', 'w+')
+g = open(sys.argv[3], 'w+')
 for element in rows:
     g.write(element)
 print(g)
