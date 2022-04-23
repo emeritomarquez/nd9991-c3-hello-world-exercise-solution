@@ -1,6 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/python
 
-f = open('~/inventory.txt', 'r')
+import sys
+
+f = open('sys.argv[2]', 'r')
 lines = f.readlines()
 f.close()
 rows = []
@@ -24,7 +26,7 @@ for line in lines:
     else:
         rows.append(line)
 print(rows)
-g = open('~/Inventory1.txt', 'w+')
+g = open('sys.argv[3]', 'w+')
 for element in rows:
     g.write(element)
 print(g)
