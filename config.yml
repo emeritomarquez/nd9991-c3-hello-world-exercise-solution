@@ -110,14 +110,12 @@ jobs:
 
   # Exercise: Config and Deployment
   configure_infrastructure:
-#    docker:
-#      - image: python:3.7-alpine3.11
     docker:
       - image: python:3.7-alpine3.11
     steps:
       - checkout
       - run: touch ~/inventory1.txt
-      -  attach_workspace:
+      - attach_workspace:
           at: ~/
       - run: cat ~/inventory1.txt
       - add_ssh_keys:
