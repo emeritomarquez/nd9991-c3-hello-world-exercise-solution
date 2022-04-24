@@ -125,10 +125,14 @@ jobs:
           command: |
             # install the dependencies needed for your playbook
             apk add --update ansible
+      - run: cd /etc/ansible
+      - run: cp ~/inventory1.txt /etc/ansible/hosts
+      - run: sudo chmod 666 /etc/ansible/ansible.cfg
+      - run: sudo sed -i 's/#inventory/inventory/g' /etc/ansible/ansible.cfg
       - run:
           name: Configure server
           command: |
-            ansible-playbook -i inventory1.txt main4.yml
+            ansible-playbook -i main4.yml
 
   # Exercise: Smoke Testing
   smoke_test:
