@@ -125,8 +125,8 @@ jobs:
           command: |
             # install the dependencies needed for your playbook
             apk add --update ansible
-      - run: cd /etc
-      - run: ls -al
+     - run: cat ~/inventory1.txt
+      - run: ls -al /etc
       - run: cp ~/inventory1.txt /etc/ansible/hosts
       - run: sudo chmod 666 /etc/ansible/ansible.cfg
       - run: sudo sed -i 's/#inventory/inventory/g' /etc/ansible/ansible.cfg
