@@ -127,7 +127,7 @@ jobs:
             apk add --update ansible
       - run: ls -al ~
       - run: cat ~/inventory1.txt
-      - run: ls -al /etc/ansible
+      - run: ls -al /etc
       - run: cp ~/inventory1.txt /etc/ansible/hosts
       - run: sudo chmod 666 /etc/ansible/ansible.cfg
       - run: sudo sed -i 's/#inventory/inventory/g' /etc/ansible/ansible.cfg
