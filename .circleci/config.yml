@@ -138,6 +138,7 @@ jobs:
           command: |
             ansible-playbook -i inventory1.txt main4.yml
 
+
   # Exercise: Smoke Testing
   smoke_test:
     docker:
