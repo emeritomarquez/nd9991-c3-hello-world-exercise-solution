@@ -130,6 +130,7 @@ jobs:
       - run: ls -al /etc/hosts
       - run: cat /etc/hosts
       - run: ansible -vvv asdf | grep ansible.cfg
+      - run: cat /root/project/ansible.cfg
       - run: cp ~/inventory1.txt /etc/ansible/hosts
       - run: sudo chmod 666 /etc/ansible/ansible.cfg
       - run: sudo sed -i 's/#inventory/inventory/g' /etc/ansible/ansible.cfg
