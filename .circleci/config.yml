@@ -127,7 +127,7 @@ jobs:
             apk add --update ansible
       - run: ls -al ~
       - run: cat ~/inventory1.txt
-      - run: sleep 180
+      - run: sleep 300
 #      - run: ansible -vvv asdf | grep ansible.cfg
 #      - run: cat /root/project/ansible.cfg
 #      - run: ls -al /root/project/
