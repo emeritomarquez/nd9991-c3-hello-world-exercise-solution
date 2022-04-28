@@ -23,6 +23,14 @@ for line in lines:
         pass
     elif line == "172.31.29.68\n":
         pass
+    elif line == "172.31.32.205\n":
+        pass
+    elif line == "172.31.32.185\n":
+        pass
+    elif line == "172.31.25.22\n":
+        pass
+    elif line == "172.31.28.42\n":
+        pass
     else:
         rows.append(line)
 print(rows)
