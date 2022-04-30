@@ -9,11 +9,13 @@ rows = []
 for line in lines:
     if line == "[hosts]\n":
         rows.append(line)
-    elif line == "35.89.12.188\n":
+    elif line == "34.220.218.90\n":
         pass
-    elif line == "35.86.92.101\n":
+    elif line == "35.89.141.187\n":
         pass
-    elif line == "52.24.149.127\n":
+    elif line == "52.38.52.160\n":
+        pass
+    elif line == "54.214.167.163\n":
         pass
     else:
         rows.append(line)
