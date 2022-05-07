@@ -129,11 +129,11 @@ jobs:
       - run: cat ~/inventory1.txt
       - run: sleep 60 
 #      - run: ansible -vvv asdf | grep ansible.cfg
-      - run: cat /root/project/ansible.cfg
-      - run: ls -al /root/project/
-      - run: cp ~/inventory1.txt /etc/ansible/hosts
-      - run: sudo chmod 666 /etc/ansible/ansible.cfg
-      - run: sudo sed -i 's/#inventory/inventory/g' /etc/ansible/ansible.cfg
+#      - run: cat /root/project/ansible.cfg
+#      - run: ls -al /root/project/
+#      - run: cp ~/inventory1.txt /etc/ansible/hosts
+#      - run: sudo chmod 666 /etc/ansible/ansible.cfg
+#      - run: sudo sed -i 's/#inventory/inventory/g' /etc/ansible/ansible.cfg
       - run:
           name: Configure server
           command: |
