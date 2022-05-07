@@ -1,19 +1,13 @@
 ---
 - name: "install apache2"
-  become: true
+  become: false 
   apt:
     name: ["apache2"]
     state: latest
     update_cache: yes
 
-- name: Touch the index.htm file, but add/remove some permissions
-  ansible.builtin.file:
-    path: /var/www/html/index.html
-    state: touch
-    mode: u+rwx,g-rwx,o-rwx
-
 - name: "install index page"
-  become: true
+  become: false
   copy:
     src: index.html
     dest: /var/www/html/index.html
