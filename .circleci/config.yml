@@ -131,13 +131,13 @@ jobs:
       - run: ansible -vvv asdf | grep ansible.cfg
       - run: cat /root/project/ansible.cfg
       - run: ls -al /root/project/
-#      - run: cp ~/inventory1.txt /etc/ansible/hosts
-#      - run: sudo chmod 666 /etc/ansible/ansible.cfg
-#      - run: sudo sed -i 's/#inventory/inventory/g' /etc/ansible/ansible.cfg
-#      - run:
-#          name: Configure server
-#          command: |
-#            ansible-playbook -i ~/inventory1.txt --private-key=ec2-emerito.pem main.yml
+      - run: cp ~/inventory1.txt /etc/ansible/hosts
+      - run: sudo chmod 666 /etc/ansible/ansible.cfg
+      - run: sudo sed -i 's/#inventory/inventory/g' /etc/ansible/ansible.cfg
+      - run:
+          name: Configure server
+          command: |
+            ansible-playbook -i ~/inventory1.txt --private-key=ec2-emerito.pem main.yml
 
 
   # Exercise: Smoke Testing
