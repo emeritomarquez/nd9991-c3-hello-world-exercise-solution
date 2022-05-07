@@ -17,7 +17,7 @@ for line in lines:
         pass
     elif line == "54.218.249.122\n":
         pass
-     elif line == "54.185.203.154\n":
+    elif line == "54.185.203.154\n":
         pass
     else:
         rows.append(line)
