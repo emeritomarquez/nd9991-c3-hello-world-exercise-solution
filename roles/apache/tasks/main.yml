@@ -1,6 +1,6 @@
 ---
 - name: "install apache2"
-  become: true 
+  become: false 
   apt:
     name: ["apache2"]
     state: latest
@@ -13,7 +13,7 @@
     mode: u+rwx,g-rwx,o-rwx
 
 - name: "install index page"
-  become: true
+  become: false
   copy:
     src: index.html
     dest: /var/www/html/index.html
