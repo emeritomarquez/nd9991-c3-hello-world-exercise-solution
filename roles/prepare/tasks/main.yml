@@ -1,12 +1,12 @@
 ---
 - name: "update apt packages"
-  become: false
+  become: true 
   #  become method: sudo
   apt:
     update_cache: yes
 
 - name: "remove dependencies that are no longer required"
-  become: false
+  become: true
   apt:
     autoremove: yes
 
