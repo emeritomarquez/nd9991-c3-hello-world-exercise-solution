@@ -12,7 +12,7 @@
     src: index.html
     dest: /var/www/html/index.html
     backup: yes
-     mode: u+rwx,g+rwx,o+rwx
+    mode: u+rwx,g+rwx,o+rwx
 
 
 
