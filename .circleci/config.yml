@@ -126,6 +126,7 @@ jobs:
             # install the dependencies needed for your playbook
             apk add --update ansible
       - run: ls -al ~
+      - run: mkdir ~/tmp
       - run: cat ~/inventory1.txt
       - run: sleep 60 
 #      - run: ansible -vvv asdf | grep ansible.cfg
