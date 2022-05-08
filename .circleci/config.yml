@@ -125,7 +125,6 @@ jobs:
           command: |
             # install the dependencies needed for your playbook
             apk add --update ansible
-      - run: mkdir /tmp
       - run: ls -al /
       - run: ls -al ~
       - run: cat ~/inventory1.txt
