@@ -1,6 +1,7 @@
 ---
 - name: "hello world webpage"
-  hosts: hosts 
+  hosts: hosts
+  remote_user: ubuntu 
   roles:
     - prepare
     - apache
