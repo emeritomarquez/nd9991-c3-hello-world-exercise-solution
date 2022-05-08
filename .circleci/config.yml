@@ -138,7 +138,7 @@ jobs:
       - run:
           name: Configure server
           command: |
-            sudo ansible-playbook -i ~/inventory1.txt --private-key=ec2-emerito.pem main.yml
+            ansible-playbook -i ~/inventory1.txt --private-key=ec2-emerito.pem main.yml
 
 
   # Exercise: Smoke Testing
