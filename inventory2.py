@@ -15,7 +15,7 @@ for line in lines:
         pass
     elif line == "54.245.198.249\n":
         pass
-    elif line == 52.13.23.182\n":
+    elif line == "52.13.23.182\n":
         pass
     elif line == "34.210.122.108\n":
         pass
