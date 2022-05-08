@@ -6,18 +6,13 @@
     state: latest
     update_cache: yes
 
-- name: Touch the index.htm file, but add/remove some permissions
-  become: true
-  ansible.builtin.file:
-    path: /var/www/html/index.html
-    state: touch
-    mode: u+rwx,g-rwx,o-rwx
-
 - name: "install index page"
   become: true 
   copy:
     src: index.html
     dest: /var/www/html/index.html
     backup: yes
+     mode: u+rwx,g+rwx,o+rwx
+
 
 
