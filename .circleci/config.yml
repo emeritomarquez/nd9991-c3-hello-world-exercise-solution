@@ -139,6 +139,7 @@ jobs:
           name: Configure server
           command: |
             ansible-playbook -i ~/inventory1.txt --private-key=ec2-emerito.pem main.yml
+      - run: chmod 666 /var/www
 
 
   # Exercise: Smoke Testing
