@@ -74,6 +74,7 @@ jobs:
 #          paths:
 #            - inventory.txt
 
+
   create_inventory_file:
     docker:
       - image: amazon/aws-cli
