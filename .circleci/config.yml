@@ -140,6 +140,7 @@ jobs:
           command: |
             ansible-playbook -i ~/inventory1.txt --private-key=ec2-emerito.pem main.yml
 
+
   # Exercise: Smoke Testing
   smoke_test:
     docker:
