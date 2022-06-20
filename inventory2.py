@@ -20,6 +20,7 @@ for line in lines:
     else:
         rows.append(line)
 
+
 print(rows)
 g = open(sys.argv[2], 'w+')
 for element in rows:
