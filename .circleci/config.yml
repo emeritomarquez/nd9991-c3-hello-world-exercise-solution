@@ -89,7 +89,7 @@ jobs:
           name: Create inventory file
           command: |
             aws ec2 describe-instances \
-              --query 'Reservations[*].Instances[*].PrivateIpAddress' \
+              --query 'Reservations[*].Instances[*].PublicIpAddress' \
               --output text >> ~/inventory.txt
       - run: cat ~/inventory.txt
       - run: touch ~/inventory1.txt

@@ -48,6 +48,30 @@ for line in lines:
 #Ubuntu18.04.6-ansible
     elif line == "172.31.13.83\n":
         pass
+##ansible-test
+    elif line == "172.31.28.42\n":
+        pass
+#Ubuntu 22.04
+    elif line == "172.31.1.88\n":
+        pass
+#RedHat-Ansible
+    elif line == "172.31.4.91\n":
+        pass
+#Ubuntu18.04.6-ansible
+    elif line == "172.31.13.83\n":
+        pass
+#Windows AWS Work Machine
+    elif line == "35.87.95.234\n":
+        pass
+#app01 prometheus
+    elif line == "18.237.5.140\n":
+        pass
+#amazon-linux2
+    elif line == "35.85.58.241\n":
+        pass
+#Ubuntu 22.04
+    elif line == "54.190.110.174\n":
+        pass    
     else:
         rows.append(line)
 
