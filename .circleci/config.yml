@@ -145,10 +145,15 @@ jobs:
       - image: alpine:latest
     steps:
       - run: apk add --update curl
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - inventory1.txt
+      - run: python dst-ip.py inventory1.txt dst-ip.txt
       - run:
           name: smoke test
           command: |
-            URL="https://blog.udacity.com/"
+            URL="cat dst-ip.txt"
             # Test if website exists
             if curl -s --head ${URL}
             then
@@ -268,6 +273,7 @@ workflows:
       - configure_infrastructure:
           requires:
             - create_inventory_file
+      - smoke_test
 #      - create_and_deploy_front_end
 #      - promote_to_production:
 #          requires:
